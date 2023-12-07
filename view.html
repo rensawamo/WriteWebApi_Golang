@@ -3,10 +3,3 @@
 <p>[<a href="/edit/{{.Title}}">edit</a>]</p>
 
 <div>{{printf "%s" .Body}}</div>
-
-func viewHandler(w http.ResponseWriter, r *http.Request) {
-    title := r.URL.Path[len("/view/"):]
-    p, _ := loadPage(title)
-    t, _ := template.ParseFiles("view.html")
-    t.Execute(w, p)
-}
